@@ -5,22 +5,16 @@ using namespace std;
 #define optimize() ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #define fraction(n) cout << fixed << setprecision(n);
 
-// int x = 0; // for this answer will 25
-
-int fun(int n){
-    static int x = 0; //for this answer will 25
-    if(n>0){
-        x++;
-        return fun(n-1) + x ;
+int nCr(int n, int r){
+    if(r==0 || r == n) return 1;
+    else {
+        return nCr(n-1,r-1) + nCr(n-1 , r);
     }
-    return 0;
 }
 
 int32_t main()
 {
     optimize();
-    int r ;
-    r = fun(5);
-    cout << r << nl;
+    cout << nCr(4,3) << nl;
     return 0;
 }
